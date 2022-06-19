@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: rgb(226, 184, 228);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.addItem {
+    background-color: rgb(108, 19, 80);
+    color: aliceblue;
+    width: 10rem;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(149, 37, 114);;
+}
+
+.done {
+    background: green !important;
+}
+
+.in-progress {
+    background: yellow;
+}

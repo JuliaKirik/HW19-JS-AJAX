@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "task": "buy milk",
+      "complited": false,
+      "id": 1
+    },
+    {
+      "task": "buy bread",
+      "complited": false,
+      "id": 2
+    },
+    {
+      "task": "buy sugar",
+      "complited": true,
+      "id": 3
+    },
+    {
+      "task": "ssdvdbg",
+      "complited": true,
+      "id": 4
+    },
+    {
+      "task": "dfgh",
+      "complited": true,
+      "id": 5
+    },
+    {
+      "task": "",
+      "complited": false,
+      "id": 6
+    },
+    {
+      "task": "sdf",
+      "complited": false,
+      "id": 7
+    }
+  ]
+}

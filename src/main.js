@@ -6,18 +6,23 @@ class TodoList {
 
         el.addEventListener('click', (event) => {
             if (event.target.classList.contains("set-status")) {
-                let li = event.target.closest('li');
-                let id = li.getAttribute('data-id'); 
-                let valueInput = li.firstChild.textContent;
-                let status = true;
-                if (li.classList.contains('done'))
-                    status = false;
-                this.addOrUpdateTodo(this.url + `/${id}`, 'PUT', new Task(valueInput, status));
+                this.update(event);
             } else if (event.target.classList.contains("addItem")) {
                 let valueInput = document.getElementById('input').value;
                 this.addOrUpdateTodo(this.url, 'POST', new Task(valueInput));
             }
         })
+    }
+
+    update(event) {
+        let li = event.target.closest('li');
+        let id = li.getAttribute('data-id'); 
+        let valueInput = li.firstChild.textContent;
+        let status = true;
+        if (li.classList.contains('done')) {
+            status = false;
+        }
+        this.addOrUpdateTodo(this.url + `/${id}`, 'PUT', new Task(valueInput, status));
     }
 
     getTodos = function(url) {
@@ -64,15 +69,13 @@ class TodoList {
         });    
     }
 
-    render() {
-        this.getTodos(this.url)
-            .then((data) => {
-                this.list.innerHTML = this.renderList(data);
-                console.log('Success ', data);
-            })
-            .catch(function(status) {
-            console.log('Something went wrong', status);
-            })
+    async render() {
+        let result = await this.getTodos(this.url)
+        try {
+            this.list.innerHTML = this.renderList(result);
+        } catch (status) {
+            console.error('Something went wrong', status);
+        }
     }
 
     renderList(array) {
@@ -82,9 +85,9 @@ class TodoList {
                 return;
             }
             let className = "in-progress";
-            if (el.complited) 
+            if (el.complited) {
                 className = "done";
-            
+            }
             lis += `<li data-id="${el.id}" class="${className}">${el.task}<button class="set-status">Change status</button></li>`;
         }
         return lis;

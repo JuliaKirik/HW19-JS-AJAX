@@ -7,7 +7,7 @@
     },
     {
       "task": "buy bread",
-      "complited": false,
+      "complited": true,
       "id": 2
     },
     {
@@ -26,8 +26,8 @@
       "id": 5
     },
     {
-      "task": "",
-      "complited": false,
+      "task": "Change status",
+      "complited": true,
       "id": 6
     },
     {
